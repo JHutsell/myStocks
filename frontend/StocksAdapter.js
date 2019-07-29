@@ -1,0 +1,4 @@
+class Stocks {
+
+	static baseUrl()
+}
