@@ -4,6 +4,10 @@ class StocksAdapter {
 		return `https://localhost:3000`;
 	}
 
+  static stockSysmbolListUrl() {
+    return `https://financialmodelingprep.com/api/v3/company/stock/list`;
+  }
+
 	static getHeaders(){
     return {
       "Content-Type": "application/json",
@@ -23,5 +27,11 @@ class StocksAdapter {
     const fetchConfig = this.fetchConfig("POST", watchlist);
     return fetch(this.baseUrl() + "/watchlists", fetchConfig)
       .then(res => res.json());
+  }
+
+  static getStockList() {
+    return fetch(this.stockSysmbolListUrl())
+    .then(res => res.json())
+    .then(console.log)
   }
 }
