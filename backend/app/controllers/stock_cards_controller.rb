@@ -1,0 +1,2 @@
+class StockCardsController < ApplicationController
+end
