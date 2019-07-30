@@ -7,5 +7,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
 SEARCH_STOCK.addEventListener('submit', event => {
 	event.preventDefault();
-	console.log
+	let input = event.target["stock-query"].value;
+	StocksAdapter.getStockList();
 })
