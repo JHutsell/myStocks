@@ -1,7 +1,7 @@
 class StocksAdapter {
 
 	static baseUrl() {
-		return `https://financialmodelingprep.com/api/v3`;
+		return `https://localhost:3000`;
 	}
 
 	static getHeaders(){
@@ -17,5 +17,11 @@ class StocksAdapter {
       headers: this.getTheHeadersPlease(),
       body: JSON.stringify(bodyObject)
     }
+  }
+
+  static createWatchlist(watchlist) {
+    const fetchConfig = this.fetchConfig("POST", watchlist);
+    return fetch(this.baseUrl() + "/watchlists", fetchConfig)
+      .then(res => res.json());
   }
 }
