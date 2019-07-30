@@ -1,7 +1,7 @@
-class Stocks {
+class StocksAdapter {
 
 	static baseUrl() {
-		return `https://financialmodelingprep.com/api/v3`;
+		return `https://localhost:3000`;
 	}
 
 	static getHeaders(){
