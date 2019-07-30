@@ -1,4 +1,4 @@
-class StocksAdapter {
+class UserAdapter {
 
 	static baseUrl() {
 		return `https://localhost:3000`;
@@ -15,7 +15,12 @@ class StocksAdapter {
     return {
       method: verb,
       headers: this.getTheHeadersPlease(),
-      body: JSON.stringify(bodyObject)
+      body: JSON.stringify(bodyObject);
     }
+  }
+
+  static getUser(userId) {
+  	return fetch(this.baseUrl() + `/users/${userId}`)
+  	.then(res => res.json());
   }
 }
