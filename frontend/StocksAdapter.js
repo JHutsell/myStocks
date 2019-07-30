@@ -35,7 +35,8 @@ class StocksAdapter {
 
   static search(stocks, input) {
     for (let stockInfo of stocks) {
-      if (stockInfo.name.split(" ")[0].toLowerCase() === input.split(" ")[0].toLowerCase()) {
+      if (stockInfo.name.split(" ")[0].toLowerCase() === input.split(" ")[0].toLowerCase() || 
+          stockInfo.symbol.split(" ")[0].toLowerCase() === input.split(" ")[0].toLowerCase()) {
         return stockInfo.symbol;
       }
     }
