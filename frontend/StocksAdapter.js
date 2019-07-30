@@ -29,9 +29,16 @@ class StocksAdapter {
       .then(res => res.json());
   }
 
+  static search(stocks, input) {
+    for (let stockInfo of stocks) {
+      if (stockInfo.name.split(" ")[0].toLowerCase() === input.split(" ")[0].toLowerCase()) {
+        console.log(stockInfo);
+      }
+    }
+  }
+
   static getStockList() {
     return fetch(this.stockSysmbolListUrl())
     .then(res => res.json())
-    .then(console.log)
   }
 }
