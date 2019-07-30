@@ -8,6 +8,10 @@ class StocksAdapter {
     return `https://financialmodelingprep.com/api/v3/company/stock/list`;
   }
 
+  static companyProfileUrl() {
+    return `https://financialmodelingprep.com/api/v3/company/profile/`;
+  }
+
 	static getHeaders(){
     return {
       "Content-Type": "application/json",
@@ -32,9 +36,15 @@ class StocksAdapter {
   static search(stocks, input) {
     for (let stockInfo of stocks) {
       if (stockInfo.name.split(" ")[0].toLowerCase() === input.split(" ")[0].toLowerCase()) {
-        console.log(stockInfo);
+        return stockInfo.symbol;
       }
     }
+  }
+
+  static getComapnyProfile(symbol) {
+    return fetch(this.companyProfileUrl() + symbol.toUpperCase())
+    .then(res => res.json())
+    .then(profile => console.log(profile));
   }
 
   static getStockList() {

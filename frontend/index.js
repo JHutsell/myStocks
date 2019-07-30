@@ -10,4 +10,5 @@ SEARCH_STOCK.addEventListener('submit', event => {
 	let input = event.target["stock-query"].value;
 	StocksAdapter.getStockList()
 	.then(stocks => StocksAdapter.search(stocks.symbolsList, input))
+	.then(symbol => StocksAdapter.getComapnyProfile(symbol));
 })
