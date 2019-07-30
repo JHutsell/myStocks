@@ -1,4 +1,4 @@
-class Stocks {
+class StocksAdapter {
 
 	static baseUrl() {
 		return `https://financialmodelingprep.com/api/v3`;
