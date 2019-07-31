@@ -4949,3 +4949,575 @@ Processing by UsersController#show as */*
 Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.8ms)
 
 
+Started DELETE "/watch_lists/3" for ::1 at 2019-07-31 19:04:18 -0400
+Processing by WatchListsController#destroy as JSON
+  Parameters: {"id"=>"3", "watch_list"=>{}}
+  [1m[36mWatchList Load (0.5ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mWatchList Destroy (0.9ms)[0m  [1m[31mDELETE FROM "watch_lists" WHERE "watch_lists"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+Completed 204 No Content in 4ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:12:04 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.5ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (2.09ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:12:04 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.92ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:13:51 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.53ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:13:51 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.4ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.83ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:14:11 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.61ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:14:11 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.4ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (2.17ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:19:08 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.43ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:19:08 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.97ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:19:56 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.39ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:19:56 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.62ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:23:16 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.3ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:23:16 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.37ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:25:14 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.29ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:25:14 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.35ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:26:27 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.58ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:26:27 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.73ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:27:14 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.5ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:27:14 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.23ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:32:46 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.44ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:33:24 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.39ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:35:13 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.54ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:35:50 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.33ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:35:50 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.81ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:36:20 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.39ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:36:20 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.55ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:36:53 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.4ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:36:53 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.68ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:37:16 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.34ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:37:16 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.4ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.83ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:38:06 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.68ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:38:06 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.56ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/watch_lists/2" for ::1 at 2019-07-31 19:38:10 -0400
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for WatchListsController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2019-07-31 19:38:49 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (13.82ms)
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:38:49 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.5ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/watch_lists/2" for ::1 at 2019-07-31 19:38:55 -0400
+Processing by WatchListsController#update as JSON
+  Parameters: {"name"=>"new test list", "id"=>"2", "watch_list"=>{"name"=>"new test list"}}
+  [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:23
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/watch_lists_controller.rb:24:in `update'
+Started GET "/users" for ::1 at 2019-07-31 19:39:51 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (14.52ms)
+Completed 200 OK in 24ms (Views: 12.7ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:39:51 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.7ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/watch_lists/2" for ::1 at 2019-07-31 19:39:55 -0400
+Processing by WatchListsController#update as JSON
+  Parameters: {"name"=>"new test list", "id"=>"2", "watch_list"=>{"name"=>"new test list"}}
+  [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mWatchList Update (0.5ms)[0m  [1m[33mUPDATE "watch_lists" SET "name" = $1, "updated_at" = $2 WHERE "watch_lists"."id" = $3[0m  [["name", "new test list"], ["updated_at", "2019-07-31 23:39:55.064765"], ["id", 2]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+Completed 204 No Content in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:40:01 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.51ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:40:01 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.13ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2019-07-31 19:43:56 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+[active_model_serializers]   [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Attributes (1.48ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2019-07-31 19:43:56 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+[active_model_serializers]   [1m[36mWatchList Load (0.2ms)[0m  [1m[34mSELECT "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:10
+[active_model_serializers] Rendered UserSerializer with ActiveModel::Serializer::Adapter::Attributes (1.61ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/watch_lists/2" for ::1 at 2019-07-31 19:44:11 -0400
+Processing by WatchListsController#update as JSON
+  Parameters: {"name"=>"old test list ", "id"=>"2", "watch_list"=>{"name"=>"old test list "}}
+  [1m[36mWatchList Load (0.5ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mWatchList Update (0.4ms)[0m  [1m[33mUPDATE "watch_lists" SET "name" = $1, "updated_at" = $2 WHERE "watch_lists"."id" = $3[0m  [["name", "old test list "], ["updated_at", "2019-07-31 23:44:11.757213"], ["id", 2]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+Completed 204 No Content in 4ms (ActiveRecord: 1.4ms)
+
+
+Started PATCH "/watch_lists/2" for ::1 at 2019-07-31 19:44:28 -0400
+Started PATCH "/watch_lists/2" for ::1 at 2019-07-31 19:44:28 -0400
+Processing by WatchListsController#update as JSON
+  Parameters: {"name"=>"test list", "id"=>"2", "watch_list"=>{"name"=>"test list"}}
+  [1m[36mWatchList Load (0.4ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mWatchList Update (0.3ms)[0m  [1m[33mUPDATE "watch_lists" SET "name" = $1, "updated_at" = $2 WHERE "watch_lists"."id" = $3[0m  [["name", "test list"], ["updated_at", "2019-07-31 23:44:28.598866"], ["id", 2]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms)
+
+
+Processing by WatchListsController#update as JSON
+  Parameters: {"name"=>"test list", "id"=>"2", "watch_list"=>{"name"=>"test list"}}
+  [1m[36mWatchList Load (0.6ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:24
+Completed 204 No Content in 5ms (ActiveRecord: 1.4ms)
+
+
+Started POST "/watch_lists" for ::1 at 2019-07-31 19:44:44 -0400
+Processing by WatchListsController#create as JSON
+  Parameters: {"name"=>"new stuff", "user_id"=>2, "watch_list"=>{"name"=>"new stuff", "user_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:14
+  [1m[36mWatchList Create (1.0ms)[0m  [1m[32mINSERT INTO "watch_lists" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "new stuff"], ["user_id", 2], ["created_at", "2019-07-31 23:44:44.122558"], ["updated_at", "2019-07-31 23:44:44.122558"]]
+  ↳ app/controllers/watch_lists_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:14
+[active_model_serializers]   [1m[36mStockCard Load (0.4ms)[0m  [1m[34mSELECT "stock_cards".* FROM "stock_cards" WHERE "stock_cards"."watch_list_id" = $1[0m  [["watch_list_id", 6]]
+[active_model_serializers]   ↳ app/controllers/watch_lists_controller.rb:16
+[active_model_serializers]   [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" INNER JOIN "stock_cards" ON "stocks"."id" = "stock_cards"."stock_id" WHERE "stock_cards"."watch_list_id" = $1[0m  [["watch_list_id", 6]]
+[active_model_serializers]   ↳ app/controllers/watch_lists_controller.rb:16
+[active_model_serializers] Rendered WatchListSerializer with ActiveModel::Serializer::Adapter::Attributes (25.77ms)
+Completed 200 OK in 31ms (Views: 15.3ms | ActiveRecord: 12.8ms)
+
+
+Started DELETE "/watch_lists/6" for ::1 at 2019-07-31 19:44:46 -0400
+Processing by WatchListsController#destroy as JSON
+  Parameters: {"id"=>"6", "watch_list"=>{}}
+  [1m[36mWatchList Load (0.3ms)[0m  [1m[34mSELECT  "watch_lists".* FROM "watch_lists" WHERE "watch_lists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/watch_lists_controller.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/watch_lists_controller.rb:29
+  [1m[36mWatchList Destroy (0.6ms)[0m  [1m[31mDELETE FROM "watch_lists" WHERE "watch_lists"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/watch_lists_controller.rb:29
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/watch_lists_controller.rb:29
+Completed 204 No Content in 3ms (ActiveRecord: 1.6ms)
+
+

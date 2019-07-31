@@ -19,6 +19,11 @@ class WatchListsController < ApplicationController
         end
     end
 
+    def update
+        @watch_list = WatchList.find(params[:id])
+        @watch_list.update(watchlist_params)
+    end
+
     def destroy 
         @watch_list = WatchList.find(params[:id])
         @watch_list.destroy
