@@ -35,7 +35,7 @@ SIGN_IN.addEventListener('click', event => {
 	signInDIv.innerHTML = `<form id="loginForm"> 
 		<label> Username </label>
 		<input name="username" type="text" placeholder="username">
-		<button id= type="submit">Submit</button>
+		<button id="sign-in-btn" type="submit">Submit</button>
 	</form>`;
 });
 
