@@ -38,7 +38,20 @@ SIGN_IN.addEventListener('click', event => {
 
 SIGN_IN_DIV.addEventListener('submit', event => {
 	event.preventDefault();
-	SIGN_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
+	let input = event.target.username.value;
+	UserAdapter.getUsers()
+	.then(users => {
+		console.log(users)
+		for (user of users) {
+			if (user.name.toLowerCase() === input.toLowerCase()) {
+				SING_IN_DIV.innerText += `Signed in as ${input}`;
+				SIGN_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
+				return;
+			}
+		}
+		console.log("test");
+		alert("An incorrect username has been provided.");
+	})
 });
 
 SIGN_IN_DIV.addEventListener('click', event => {
