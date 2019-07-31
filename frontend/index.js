@@ -1,9 +1,10 @@
 const SEARCH_STOCK = document.querySelector('#search-stock');
 const SIGN_IN = document.querySelector('#signin');
+const SIGNED_IN = false;
+
 
 // loads the content
 document.addEventListener("DOMContentLoaded", event => {
-
 });
 
 SEARCH_STOCK.addEventListener('submit', event => {
@@ -22,6 +23,17 @@ SEARCH_STOCK.addEventListener('submit', event => {
 		}
 	});
 })
+
+
+
+SIGN_IN.addEventListener('click', event => {
+	let signInDIv = event.target.parentElement;
+	signInDIv.innerHTML = `<form> 
+		<label> Username </label>
+		<input name="username" type="text" placeholder="username">
+		<button type="submit">Submit</button>
+	</form>`
+});
 
 
 
