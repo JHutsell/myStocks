@@ -45,12 +45,34 @@ class StocksAdapter {
   static getCompanyProfile(symbol) {
     return fetch(this.companyProfileUrl() + symbol.toUpperCase())
     .then(res => res.json())
-    //.then(profile => console.log(profile));
-    //resolve
   }
 
   static getStockList() {
     return fetch(this.stockSysmbolListUrl())
     .then(res => res.json())
   }
+
+  static createDiv(stockInfo) {
+    let stockProfile = stockInfo.profile;
+    let showedStockDiv = document.createElement("div");
+    showedStockDiv.innerHTML = ` <button name="exit" id="exit-button">X</button>
+                <h3>${stockProfile.companyName}</h3>
+                <h4>${stockInfo.symbol}</h4>
+                <p>Price: $${stockProfile.price}</p>
+                <p>Description: <br>${stockProfile.description}</p>
+                <p>Sector: <br>${stockProfile.sector}</p>
+                <a href=${stockProfile.website} target="_blank">Website</a>
+                <img src=${stockProfile.image}>
+                <label for="add-stock">Add Stock to a Watchlist:</label>
+                <select name="Add Stock to Watchlist">
+                </select>
+                `
+    let exitButton = showedStockDiv.querySelector('#exit-button');
+    exitButton.addEventListener("click", function() {
+      showedStockDiv.remove();
+    })
+
+    document.body.append(showedStockDiv);
+  }
 }
+

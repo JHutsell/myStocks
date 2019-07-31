@@ -1,7 +1,7 @@
 class UserAdapter {
 
 	static baseUrl() {
-		return `https://localhost:3000`;
+		return `http://localhost:3000/`;
 	}
 
 	static getHeaders(){
@@ -19,8 +19,13 @@ class UserAdapter {
     }
   }
 
+  static getUsers() {
+    return fetch(this.baseUrl() + `users`)
+    .then(res => res.json());
+  }
+
   static getUser(userId) {
-  	return fetch(this.baseUrl() + `/users/${userId}`)
+  	return fetch(this.baseUrl() + `users/${userId}`)
   	.then(res => res.json());
   }
 }
