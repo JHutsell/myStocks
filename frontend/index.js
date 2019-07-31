@@ -8,21 +8,23 @@ const SIGN_IN_DIV = document.querySelector('.signin')
 document.addEventListener("DOMContentLoaded", event => {
 });
 
-SEARCH_STOCK.addEventListener('submit', event => {
-	event.preventDefault();
-	let input = event.target["stock-query"].value;
-	StocksAdapter.getStockList()
-	.then(stocks => StocksAdapter.search(stocks.symbolsList, input))
-	.then(symbol => {
-		if (symbol !== undefined){
-			console.log(symbol)
-			StocksAdapter.getCompanyProfile(symbol)
-			.then(StocksAdapter.createDiv);
-		}
-		else {
-			alert("Sorry, we could not find this stock for you. Try entering a different name.")
-		}
-	});
+document.addEventListener('submit', event => {
+	if (event.target.parentElement.id === loginForm) {
+		event.preventDefault();
+		let input = event.target["stock-query"].value;
+		StocksAdapter.getStockList()
+		.then(stocks => StocksAdapter.search(stocks.symbolsList, input))
+		.then(symbol => {
+			if (symbol !== undefined){
+				console.log(symbol)
+				StocksAdapter.getCompanyProfile(symbol)
+				.then(StocksAdapter.createDiv);
+			}
+			else {
+				alert("Sorry, we could not find this stock for you. Try entering a different name.")
+			}
+		});
+	}
 })
 
 
@@ -44,8 +46,25 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 		console.log(users)
 		for (user of users) {
 			if (user.name.toLowerCase() === input.toLowerCase()) {
-				SIGN_IN_DIV.innerText += `Signed in as ${input}`;
-				SIGN_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
+				SIGN_IN_DIV.innerText = `Signed in as ${input}`;
+				SIGN_IN_DIV.innerHTML += `<button id="signout">Sign out</button>`;
+				document.body.innerHTML += `<form id="search-stock">
+					<label for="stock-query">Search Stocks</label>
+					<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
+					<button type="submit">Submit</button>
+				</form>
+				<div id="watchlists">
+					<h3>Watchlists</h3>
+					<label for="new-watchlist">Create New Watchlist</label>
+					<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
+					<button type="submit">Submit</button>
+					<ul id="watchlist-list">
+					</ul>
+				</div>
+				<div id="current-watchlist">
+				</div>
+				<div id="selected-stock">
+				</div>`;
 				return;
 			}
 		}
@@ -54,13 +73,11 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 	})
 });
 
-SIGN_IN_DIV.addEventListener('click', event => {
+document.addEventListener('click', event => {
 	if (event.target.id === "signout") {
 		location.reload();
 	}
 });
-
-
 
 
 
