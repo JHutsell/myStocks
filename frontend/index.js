@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", event => {
 });
 
 document.addEventListener('submit', event => {
-	if (event.target.parentElement.id === loginForm) {
-		event.preventDefault();
+	event.preventDefault();
+	console.log(event.target);
+	if (event.target.id === "search-stock") {
 		let input = event.target["stock-query"].value;
 		StocksAdapter.getStockList()
 		.then(stocks => StocksAdapter.search(stocks.symbolsList, input))
