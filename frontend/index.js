@@ -12,10 +12,25 @@ SEARCH_STOCK.addEventListener('submit', event => {
 	.then(stocks => StocksAdapter.search(stocks.symbolsList, input))
 	.then(symbol => {
 		if (symbol !== undefined){
-			StocksAdapter.getComapnyProfile(symbol);
+			console.log(symbol)
+			console.log(StocksAdapter.getCompanyProfile(symbol));
 		}
 		else {
 			alert("Sorry, we could not find this stock for you. Try entering a different name.")
 		}
 	});
 })
+
+// let showedStock = StocksAdapter.getCompanyProfile(symbol);
+// let showedStockDiv = document.createElement("div");
+            //console.log(showedStock)
+            // showedStockDiv.innerHTML = ` <h3>${showedStock.companyName}</h3>
+            //  <h4>${showedStock.symbol}</h4>
+            //  <p>${showedStock.price}</p>
+            //  <p>${showedStock.description}</p>
+            //  <p>${showedStock.sector}</p>
+            //  <a href=${showedStock.website}></a>
+            
+            // `
+            // showedStockDisplay.append(showedStockDiv);
+            //<img src=${showedStock.image}/>
