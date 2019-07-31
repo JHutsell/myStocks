@@ -58,7 +58,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 					<h3>Watchlists</h3>
 					<label for="new-watchlist">Create New Watchlist</label>
 					<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
-					<button type="submit">Submit</button>
+					<button id="createWatchList" type="submit">Submit</button>
 					<ul id="watchlist-list">
 					</ul>
 				</div>
@@ -66,6 +66,14 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 				</div>
 				<div id="selected-stock">
 				</div>`;
+				let button=document.querySelector("#createWatchList")
+				debugger
+				button.addEventListener('click', event => {
+					event.preventDefault();
+					// if (event.target.id === "createWatchList") {
+						console.log(event.target);
+					// }
+				});
 				return;
 			}
 		}
@@ -79,6 +87,8 @@ document.addEventListener('click', event => {
 		location.reload();
 	}
 });
+
+
 
 
 
