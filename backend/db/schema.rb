@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_223057) do
+ActiveRecord::Schema.define(version: 2019_07_31_161245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2019_07_29_223057) do
   create_table "stock_cards", force: :cascade do |t|
     t.bigint "stock_id"
     t.bigint "watch_list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["stock_id"], name: "index_stock_cards_on_stock_id"
     t.index ["watch_list_id"], name: "index_stock_cards_on_watch_list_id"
   end
@@ -32,22 +30,21 @@ ActiveRecord::Schema.define(version: 2019_07_29_223057) do
     t.string "industry"
     t.string "website"
     t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "watch_lists", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_watch_lists_on_user_id"
   end
 
   add_foreign_key "stock_cards", "stocks"
   add_foreign_key "stock_cards", "watch_lists"
+  add_foreign_key "watch_lists", "users"
 end
