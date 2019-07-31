@@ -1,7 +1,7 @@
 const SEARCH_STOCK = document.querySelector('#search-stock');
 const SIGN_IN = document.querySelector('#signin');
 const SIGNED_IN = false;
-const SING_IN_DIV = document.querySelector('.signin')
+const SIGN_IN_DIV = document.querySelector('.signin')
 
 
 // loads the content
@@ -36,10 +36,18 @@ SIGN_IN.addEventListener('click', event => {
 	</form>`;
 });
 
-SING_IN_DIV.addEventListener('submit', event => {
+SIGN_IN_DIV.addEventListener('submit', event => {
 	event.preventDefault();
-	SING_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
-})
+	SIGN_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
+});
+
+SIGN_IN_DIV.addEventListener('click', event => {
+	if (event.target.id === "signout") {
+		location.reload();
+	}
+});
+
+
 
 
 
