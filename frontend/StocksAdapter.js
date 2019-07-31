@@ -45,8 +45,6 @@ class StocksAdapter {
   static getCompanyProfile(symbol) {
     return fetch(this.companyProfileUrl() + symbol.toUpperCase())
     .then(res => res.json())
-    //.then(profile => console.log(profile));
-    //resolve
   }
 
   static getStockList() {
