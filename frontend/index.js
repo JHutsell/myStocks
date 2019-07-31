@@ -44,7 +44,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 		console.log(users)
 		for (user of users) {
 			if (user.name.toLowerCase() === input.toLowerCase()) {
-				SING_IN_DIV.innerText += `Signed in as ${input}`;
+				SIGN_IN_DIV.innerText += `Signed in as ${input}`;
 				SIGN_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
 				return;
 			}
