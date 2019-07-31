@@ -6,7 +6,7 @@ class WatchListsController < ApplicationController
     end
 
     def show
-        @watch_list= WatchList.find(params[:id])
+        @watch_list = WatchList.find(params[:id])
         render json: @watch_list
     end
 
@@ -17,6 +17,11 @@ class WatchListsController < ApplicationController
         else
             render json: { errors: @watch_list.errors.full_messages }, status: :unprocessable_entity
         end
+    end
+
+    def destroy 
+        @watch_list = WatchList.find(params[:id])
+        @watch_list.destroy
     end
 
 
