@@ -11,10 +11,10 @@ class UserAdapter {
     }
   }
 
-  static fetchConfig(verb, bodyObject) {
+  static fetchConfig(verb, body) {
     return {
       method: verb,
-      headers: this.getTheHeadersPlease(),
+      headers: this.getHeaders(),
       body: JSON.stringify(bodyObject)
     }
   }
