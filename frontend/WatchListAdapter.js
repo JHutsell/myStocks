@@ -28,12 +28,31 @@ class WatchListAdapter {
     return {name, user_id}
    }
 
+  static deleteWatchList(item) {
+    fetch(this.baseUrl() + `watch_lists/` + item.dataset.id,  {
+      method: "DELETE",
+      headers: this.getHeaders()
+    })
+    .then(item.remove())
+  }
+
+  static clickEvents() {
+    document.addEventListener('click', event => {
+      // event.preventDefault()
+      if (event.target.className === "delete-list") {
+        this.deleteWatchList(event.target.parentElement);
+      }
+    })
+  }
+
    static slapOnTheDOM(watchlistInfo) {
      let watchlist = document.querySelector('#watchlist-list');
      let listItem = document.createElement('li');
      watchlist.append(listItem);
      listItem.dataset.id = watchlistInfo.id;
-     listItem.innerText += watchlistInfo.name;
+     listItem.innerHTML += watchlistInfo.name;
+     listItem.innerHTML += `<button class="edit-list">Change Name</button>
+     <button class="delete-list">Delete</button>`
      watchlist.appened;
    }
 
@@ -43,12 +62,6 @@ class WatchListAdapter {
     .then(this.slapOnTheDOM)
   }
 
-  // static addWatchListsToDOM(userInfo) {
-  //   for (let watchlist of userInfo.watch_lists) {
-  //     this.slapOnTheDOM(watchlist);
-  //   }
-  // }
-
   static addWatchListsToDOM(userId) {
     UserAdapter.getUser(userId)
     .then(userData => {
@@ -56,6 +69,7 @@ class WatchListAdapter {
         this.slapOnTheDOM(wl);
       }
     })
+    this.clickEvents();
   }
 
 
