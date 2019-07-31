@@ -1,4 +1,5 @@
 const SEARCH_STOCK = document.querySelector('#search-stock');
+const SIGN_IN = document.querySelector('#signin');
 
 // loads the content
 document.addEventListener("DOMContentLoaded", event => {
@@ -21,5 +22,7 @@ SEARCH_STOCK.addEventListener('submit', event => {
 		}
 	});
 })
+
+
 
 
