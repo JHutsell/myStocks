@@ -1,6 +1,7 @@
 const SEARCH_STOCK = document.querySelector('#search-stock');
 const SIGN_IN = document.querySelector('#signin');
 const SIGNED_IN = false;
+const SING_IN_DIV = document.querySelector('.signin')
 
 
 // loads the content
@@ -28,13 +29,17 @@ SEARCH_STOCK.addEventListener('submit', event => {
 
 SIGN_IN.addEventListener('click', event => {
 	let signInDIv = event.target.parentElement;
-	signInDIv.innerHTML = `<form> 
+	signInDIv.innerHTML = `<form id="loginForm"> 
 		<label> Username </label>
 		<input name="username" type="text" placeholder="username">
-		<button type="submit">Submit</button>
-	</form>`
+		<button id= type="submit">Submit</button>
+	</form>`;
 });
 
+SING_IN_DIV.addEventListener('submit', event => {
+	event.preventDefault();
+	SING_IN_DIV.innerHTML = `<button id="signout">Sign out</button>`;
+})
 
 
 
