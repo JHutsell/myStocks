@@ -28,12 +28,34 @@ class WatchListAdapter {
     return {name, user_id}
    }
 
-
+   static slapOnTheDOM(watchlistInfo) {
+     let watchlist = document.querySelector('#watchlist-list');
+     let listItem = document.createElement('li');
+     watchlist.append(listItem);
+     listItem.dataset.id = watchlistInfo.id;
+     listItem.innerText += watchlistInfo.name;
+     watchlist.appened;
+   }
 
    static postWatchList(input) {
     fetch(this.baseUrl() + `watch_lists`, this.fetchConfig("POST", this.body(input)))
     .then(res => res.json())
-    .then(console.log)
+    .then(this.slapOnTheDOM)
+  }
+
+  // static addWatchListsToDOM(userInfo) {
+  //   for (let watchlist of userInfo.watch_lists) {
+  //     this.slapOnTheDOM(watchlist);
+  //   }
+  // }
+
+  static addWatchListsToDOM(userId) {
+    UserAdapter.getUser(userId)
+    .then(userData => {
+      for (let wl of userData.watch_lists) {
+        this.slapOnTheDOM(wl);
+      }
+    })
   }
 
 
