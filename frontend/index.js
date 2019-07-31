@@ -72,6 +72,8 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 				let button=document.querySelector("#createWatchList")
 				button.addEventListener('click', event => {
 					event.preventDefault();
+					console.log(event.target.parentElement.watchlist.value);
+					WatchListAdapter.postWatchList(event.target.parentElement.watchlist.value);
 					// if (event.target.id === "createWatchList") {
 					
 					// }

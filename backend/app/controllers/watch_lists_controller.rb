@@ -1,21 +1,21 @@
 class WatchListsController < ApplicationController
 
     def index
-        @watchlists = WatchList.all 
-        render json: @watchlists
+        @watch_lists = WatchList.all 
+        render json: @watch_lists
     end
 
     def show
-        @watchlist= WatchList.find(params[:id])
-        render json: @watchlist
+        @watch_list= WatchList.find(params[:id])
+        render json: @watch_list
     end
 
     def create
-        @watchlist = WatchList.create(watchlist_params)
-        if @watchlist.valid?
-            render json: @watchlist
+        @watch_list = WatchList.create(watchlist_params)
+        if @watch_list.valid?
+            render json: @watch_list
         else
-            render json: { errors: @watchlist.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @watch_list.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -23,6 +23,6 @@ class WatchListsController < ApplicationController
     private 
 
     def watchlist_params
-        params.require(:watchlist).permit(:name)
+        params.require(:watch_list).permit(:name, :user_id)
     end
 end
