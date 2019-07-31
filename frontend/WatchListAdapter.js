@@ -36,27 +36,46 @@ class WatchListAdapter {
     .then(item.remove())
   }
 
+  static changeName(item, name) {
+    fetch(this.baseUrl() + `watch_lists/` + item.dataset.id, this.fetchConfig("PATCH", {name}))
+  }
+
   static clickEvents() {
     document.addEventListener('click', event => {
       // event.preventDefault()
       if (event.target.className === "delete-list") {
         this.deleteWatchList(event.target.parentElement);
       }
+      else if (event.target.className === "edit-list") {
+        let listItem = event.target.parentElement;
+        listItem.innerHTML += `<form id="change-name"> 
+          <label>Choose a new name for your watchlist: </label>
+          <input name="new-name" type="text" placeholder="new watchlist">
+          <button id="change-name" type="submit">Submit</button>
+        </form>`;
+        listItem.addEventListener('submit', event => {
+          let newName = event.target["new-name"].value;
+          this.changeName(event.target.parentElement, newName);
+        })
+        // console.log(event.target.parentElement)
+        
+      }
     })
   }
 
-   static slapOnTheDOM(watchlistInfo) {
-     let watchlist = document.querySelector('#watchlist-list');
-     let listItem = document.createElement('li');
-     watchlist.append(listItem);
-     listItem.dataset.id = watchlistInfo.id;
-     listItem.innerHTML += watchlistInfo.name;
-     listItem.innerHTML += `<button class="edit-list">Change Name</button>
-     <button class="delete-list">Delete</button>`
-     watchlist.appened;
-   }
+  static slapOnTheDOM(watchlistInfo) {
+    let watchlist = document.querySelector('#watchlist-list');
+    let listItem = document.createElement('li');
+    watchlist.append(listItem);
+    listItem.dataset.id = watchlistInfo.id;
+    listItem.innerHTML += watchlistInfo.name;
+    listItem.innerHTML += `<button class="edit-list">Change Name</button>
+    <button class="delete-list">Delete</button>`
+    watchlist.appened;
+  }
 
-   static postWatchList(input) {
+
+  static postWatchList(input) {
     fetch(this.baseUrl() + `watch_lists`, this.fetchConfig("POST", this.body(input)))
     .then(res => res.json())
     .then(this.slapOnTheDOM)
