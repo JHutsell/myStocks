@@ -31,7 +31,7 @@ function createDiv(stockInfo) {
 	            <p>${stockProfile.description}</p>
 	            <p>${stockProfile.sector}</p>
 	            <a href=${stockProfile.website}></a>
-	            <img src=${stockProfile.image}/>
+	            <img src=${stockProfile.image}>
 	            `
 	console.log(stockProfile)
 	document.body.append(showedStockDiv);
