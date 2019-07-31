@@ -38,6 +38,11 @@ class WatchListAdapter {
 
   static changeName(item, name) {
     fetch(this.baseUrl() + `watch_lists/` + item.dataset.id, this.fetchConfig("PATCH", {name}))
+    .then(temp => {
+      item.innerHTML = name;
+      item.innerHTML += `<button class="edit-list">Change Name</button>
+      <button class="delete-list">Delete</button>`
+    })
   }
 
   static clickEvents() {
