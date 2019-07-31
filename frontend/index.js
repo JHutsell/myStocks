@@ -13,7 +13,8 @@ SEARCH_STOCK.addEventListener('submit', event => {
 	.then(symbol => {
 		if (symbol !== undefined){
 			console.log(symbol)
-			console.log(StocksAdapter.getCompanyProfile(symbol));
+			StocksAdapter.getCompanyProfile(symbol)
+			.then(createDiv);
 		}
 		else {
 			alert("Sorry, we could not find this stock for you. Try entering a different name.")
@@ -21,16 +22,18 @@ SEARCH_STOCK.addEventListener('submit', event => {
 	});
 })
 
-// let showedStock = StocksAdapter.getCompanyProfile(symbol);
-// let showedStockDiv = document.createElement("div");
-            //console.log(showedStock)
-            // showedStockDiv.innerHTML = ` <h3>${showedStock.companyName}</h3>
-            //  <h4>${showedStock.symbol}</h4>
-            //  <p>${showedStock.price}</p>
-            //  <p>${showedStock.description}</p>
-            //  <p>${showedStock.sector}</p>
-            //  <a href=${showedStock.website}></a>
-            
-            // `
-            // showedStockDisplay.append(showedStockDiv);
-            //<img src=${showedStock.image}/>
+function createDiv(stockInfo) {
+	let stockProfile = stockInfo.profile;
+	let showedStockDiv = document.createElement("div");
+	showedStockDiv.innerHTML = ` <h3>${stockProfile.companyName}</h3>
+	            <h4>${stockInfo.symbol}</h4>
+	             <p>${stockProfile.price}</p>
+	             <p>${stockProfile.description}</p>
+	              <p>${stockProfile.sector}</p>
+	              <a href=${stockProfile.website}></a>
+	            <img src=${stockProfile.image}/>
+	            `
+	console.log(stockProfile)
+	document.body.append(showedStockDiv);
+	            //showedStockDisplay.append(showedStockDiv);
+}
