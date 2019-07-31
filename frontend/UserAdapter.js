@@ -28,4 +28,5 @@ class UserAdapter {
   	return fetch(this.baseUrl() + `users/${userId}`)
   	.then(res => res.json());
   }
+
 }

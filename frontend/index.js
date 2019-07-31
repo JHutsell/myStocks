@@ -69,6 +69,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 				</div>
 				<div id="selected-stock">
 				</div>`;
+				WatchListAdapter.addWatchListsToDOM(user.id);
 				let button=document.querySelector("#createWatchList")
 				button.addEventListener('click', event => {
 					event.preventDefault();
