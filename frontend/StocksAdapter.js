@@ -51,4 +51,19 @@ class StocksAdapter {
     return fetch(this.stockSysmbolListUrl())
     .then(res => res.json())
   }
+
+  static createDiv(stockInfo) {
+    let stockProfile = stockInfo.profile;
+    let showedStockDiv = document.createElement("div");
+    showedStockDiv.innerHTML = ` <h3>${stockProfile.companyName}</h3>
+                <h4>${stockInfo.symbol}</h4>
+                <p>${stockProfile.price}</p>
+                <p>${stockProfile.description}</p>
+                <p>${stockProfile.sector}</p>
+                <a href=${stockProfile.website}></a>
+                <img src=${stockProfile.image}>
+                `
+    console.log(stockProfile)
+    document.body.append(showedStockDiv);
+  }
 }
