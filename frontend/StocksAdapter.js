@@ -88,8 +88,8 @@ class StocksAdapter {
     .then(watchlistData => {
       //console.log(watchlistData);
       this.makeCurrentWatchlist(watchlistData)
-      if (watchlistData.stocks.length > 0) { 
-        for (let stock of watchlistData.stocks) {
+      if (watchlistData.stock_cards.length > 0) { 
+        for (let stock of watchlistData.stock_cards) {
           let stockLi = document.createElement("li");
           stockLi.innerHTML = `
           <p>${stock.name}</p>
