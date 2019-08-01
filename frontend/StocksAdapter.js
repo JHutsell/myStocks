@@ -112,12 +112,28 @@ static addStockToWatchList(watch_list_id, symbol) {
     select.append(option);
   }
 
+  static slapOnTheDOM(stockInfo) {
+    let watchlist = document.querySelector('#listOfCurrentWatchlist');
+    let listItem = document.createElement('li');
+    watchlist.append(listItem);
+    listItem.dataset.id = stockInfo.id;
+    listItem.innerHTML += `<span>${stockInfo.symbol}</span>`;
+    listItem.innerHTML += `<button class="delete-list">Delete</button>`;
+    listItem.addEventListener('click', event => {
+      console.log(event.target);
+    });
+  }
+
   static makeCurrentWatchlist(watchlistData) {
     let currentWatchlist = document.querySelector('#current-watchlist');
     currentWatchlist.innerHTML = `
       <h3>${watchlistData.name}</h3>
-      <ul id="listOfCurrentWatchlist"></ul>
-    `
+      <ul id="listOfCurrentWatchlist"></ul>`;
+    if (watchlistData.stock_cards.length > 0) { 
+        for (let stock of watchlistData.stock_cards) {
+          this.slapOnTheDOM(stock);
+      }
+    }
   }
 
   static addWatchListToDOM(watchlistId) {
@@ -125,15 +141,6 @@ static addStockToWatchList(watch_list_id, symbol) {
     .then(watchlistData => {
       //console.log(watchlistData);
       this.makeCurrentWatchlist(watchlistData)
-      if (watchlistData.stock_cards.length > 0) { 
-        for (let stock of watchlistData.stock_cards) {
-          let stockLi = document.createElement("li");
-          stockLi.innerHTML = `
-          <p>${stock.name}</p>
-          <button name="delete-from-list" id="delete-from-list">Remove</button>
-          `
-          console.log(stock);
-      }}
     });
     //this.clickEvents();
   }
