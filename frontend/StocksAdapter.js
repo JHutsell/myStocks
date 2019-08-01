@@ -74,5 +74,15 @@ class StocksAdapter {
 
     document.body.append(showedStockDiv);
   }
+
+  static addWatchListsToDOM(userId) {
+    UserAdapter.getUser(userId)
+    .then(userData => {
+      for (let wl of userData.watch_lists) {
+        this.slapOnTheDOM(wl);
+      }
+    })
+    this.clickEvents();
+  }
 }
 

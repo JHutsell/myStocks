@@ -76,7 +76,9 @@ class WatchListAdapter {
     listItem.innerHTML += watchlistInfo.name;
     listItem.innerHTML += `<button class="edit-list">Change Name</button>
     <button class="delete-list">Delete</button>`
-    watchlist.appened;
+    listItem.addEventListener('click', event => {
+      console.log(event.target);
+    });
   }
 
 
