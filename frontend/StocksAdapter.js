@@ -55,24 +55,24 @@ class StocksAdapter {
   static createDiv(stockInfo) {
     let stockProfile = stockInfo.profile;
     let showedStockDiv = document.querySelector("#search-stock-div");
-    showedStockDiv.innerHTML = ` <button name="exit" id="exit-button">X</button>
-                <h3>${stockProfile.companyName}</h3>
-                <h4>${stockInfo.symbol}</h4>
-                <p>Price: $${stockProfile.price}</p>
-                <p>Description: <br>${stockProfile.description}</p>
-                <p>Sector: <br>${stockProfile.sector}</p>
-                <a href=${stockProfile.website} target="_blank">Website</a>
-                <img src=${stockProfile.image}>
-                <label for="add-stock">Add Stock to a Watchlist:</label>
-                <select name="Add Stock to Watchlist">
-                </select>
-                `
+    showedStockDiv.innerHTML = `<div id="pop-up-stock-search"> <button name="exit" id="exit-button">x</button>
+      <h3>${stockProfile.companyName}</h3>
+            <h4>${stockInfo.symbol}</h4>
+            <p>Price: $${stockProfile.price}</p>
+            <p>Description: <br>${stockProfile.description}</p>
+            <p>Sector: <br>${stockProfile.sector}</p>
+            <a href=${stockProfile.website} target="_blank">Website</a>
+            <img src=${stockProfile.image}>
+      <label for="add-stock">Add Stock to a Watchlist:</label>
+      <select name="Add Stock to Watchlist">
+      </select>
+    </div>`;
     let exitButton = showedStockDiv.querySelector('#exit-button');
     exitButton.addEventListener("click", function() {
       showedStockDiv.innerHTML = `<form id="search-stock">
         <label for="stock-query">Search Stocks</label>
         <input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
-        <button type="submit">Submit</button>
+        <button type="submit">search</button>
       </form>`;
     })
 

@@ -54,7 +54,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 					<form id="search-stock">
 						<label for="stock-query">Search Stocks</label>
 						<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
-						<button type="submit">Submit</button>
+						<button type="submit">search</button>
 					</form>
 				</div>
 				<div id="watchlists">
@@ -62,7 +62,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 					<form id="watchListForm">
 						<label for="new-watchlist">Create New Watchlist</label>
 						<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
-						<button id="createWatchList" type="submit">Submit</button>
+						<button id="createWatchList" type="submit">+</button>
 					</form>
 					<ul id="watchlist-list">
 					</ul>
