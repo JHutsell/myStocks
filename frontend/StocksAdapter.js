@@ -37,6 +37,14 @@ class StocksAdapter {
       .then(res => res.json());
   }
 
+  static deleteStock(item) {
+    fetch(this.baseUrl() + `/stock_cards/` + item.dataset.id,  {
+      method: "DELETE",
+      headers: this.getHeaders()
+    })
+    .then(item.remove())
+  }
+
   static search(stocks, input) {
     for (let stockInfo of stocks) {
       if (stockInfo.name.split(" ")[0].toLowerCase() === input.split(" ")[0].toLowerCase() || 
@@ -131,9 +139,15 @@ static addStockToWatchList(watch_list_id, symbol) {
     let listItem = document.createElement('li');
     watchlist.append(listItem);
     listItem.dataset.id = stockInfo.id;
-    listItem.innerHTML += `<span>${stockInfo.symbol}</span>`;
-    listItem.innerHTML += `<button class="delete-list">Delete</button>`;
+    this.getRealTimePrice(stockInfo.symbol)
+    .then(realTimeStock => {
+      listItem.innerHTML += `<span>${stockInfo.symbol} - $${realTimeStock.price}      </span>`;
+      listItem.innerHTML += `<button class="delete-list">Delete</button>`
+    });
     listItem.addEventListener('click', event => {
+      if (event.target.className === 'delete-list') {
+        this.deleteStock(event.target.parentElement);
+      }
       console.log(event.target);
     });
   }
@@ -148,6 +162,11 @@ static addStockToWatchList(watch_list_id, symbol) {
           this.slapOnTheDOM(stock);
       }
     }
+  }
+
+  static getRealTimePrice(symbol) {
+    return fetch(this.realTimeUrl() + `${symbol.toUpperCase()}`)
+    .then(res => res.json());
   }
 
   static addWatchListToDOM(watchlistId) {
