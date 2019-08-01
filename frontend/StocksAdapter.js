@@ -100,5 +100,13 @@ class StocksAdapter {
     });
     //this.clickEvents();
   }
+
+// add stock to a watchlist
+static addStockToWatchList() {
+	fetch(this.baseUrl() + `/stock_cards`, this.fetchConfig("POST", {
+		
+	}))
+}
+
 }
 
