@@ -50,17 +50,19 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 				SIGN_IN_DIV.innerText = `Signed in as ${input}`;
 				SIGN_IN_DIV.innerHTML += `<button id="signout">Sign out</button>`;
 				document.body.innerHTML += `<div id="userDiv" data-id="${user.id}"></div>`
-				document.body.innerHTML += `<form id="search-stock">
-					<label for="stock-query">Search Stocks</label>
-					<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
-					<button type="submit">Submit</button>
-				</form>
+				document.body.innerHTML += `<div id="search-stock-div">
+					<form id="search-stock">
+						<label for="stock-query">Search Stocks</label>
+						<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
+						<button type="submit">search</button>
+					</form>
+				</div>
 				<div id="watchlists">
 					<h3>Watchlists</h3>
 					<form id="watchListForm">
 						<label for="new-watchlist">Create New Watchlist</label>
 						<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
-						<button id="createWatchList" type="submit">Submit</button>
+						<button id="createWatchList" type="submit">+</button>
 					</form>
 					<ul id="watchlist-list">
 					</ul>
@@ -92,15 +94,3 @@ document.addEventListener('click', event => {
 		location.reload();
 	}
 });
-
-// // add stock to a watchlist
-// function addStockToWatchList() {
-// 	fetch(StockAdapter.baseUrl() + `/stocks`, StocksAdapter.fetchConfig("POST", {
-		
-// 	}))
-// }
-
-
-
-
-
