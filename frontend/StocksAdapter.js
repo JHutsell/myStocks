@@ -75,16 +75,30 @@ class StocksAdapter {
     document.body.append(showedStockDiv);
   }
 
+  static makeCurrentWatchlist(watchlistData) {
+    let currentWatchlist = document.querySelector('#current-watchlist');
+    currentWatchlist.innerHTML = `
+      <h3>${watchlistData.name}</h3>
+      <ul id="listOfCurrentWatchlist"></ul>
+    `
+  }
+
   static addWatchListToDOM(watchlistId) {
     WatchListAdapter.getWatchList(watchlistId)
     .then(watchlistData => {
-      console.log(watchlistData);
+      //console.log(watchlistData);
+      this.makeCurrentWatchlist(watchlistData)
+      if (watchlistData.stocks.length > 0) { 
+        for (let stock of watchlistData.stocks) {
+          let stockLi = document.createElement("li");
+          stockLi.innerHTML = `
+          <p>${stock.name}</p>
+          <button name="delete-from-list" id="delete-from-list">Remove</button>
+          `
+          console.log(stock);
+      }}
     });
-    //   for (let stock of watchlistData.stocks) {
-    //     console.log(stock);
-    //   }
-    // });
-    // this.clickEvents();
+    //this.clickEvents();
   }
 }
 
