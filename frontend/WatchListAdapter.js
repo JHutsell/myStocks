@@ -42,6 +42,7 @@ class WatchListAdapter {
       item.innerHTML = `<span>${name}</span>`;
       item.innerHTML += `<button class="edit-list">Change Name</button>
       <button class="delete-list">Delete</button>`
+      item.innerHTML += `<div id="change-div"></div>`
       console.log(item)
       item.addEventListener('click', event => {
         if (event.target.tagName === 'SPAN') {
@@ -59,14 +60,14 @@ class WatchListAdapter {
       }
       else if (event.target.className === "edit-list") {
         let listItem = event.target.parentElement;
-        listItem.innerHTML += `<form id="change-name"> 
+        listItem.children[3].innerHTML = `<form id="change-name"> 
           <label>Choose a new name for your watchlist: </label>
           <input name="new-name" type="text" placeholder="new watchlist">
           <button id="change-name" type="submit">Submit</button>
         </form>`;
         listItem.addEventListener('submit', event => {
           let newName = event.target["new-name"].value;
-          this.changeName(event.target.parentElement, newName);
+          this.changeName(event.target.parentElement.parentElement, newName);
         })
         // console.log(event.target.parentElement)
         
@@ -87,6 +88,7 @@ class WatchListAdapter {
         StocksAdapter.addWatchListToDOM(event.target.parentElement.dataset.id)
       }
     });
+    listItem.innerHTML += `<div id="change-div"></div>`
   }
 
 
