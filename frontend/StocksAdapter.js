@@ -12,6 +12,10 @@ class StocksAdapter {
     return `https://financialmodelingprep.com/api/v3/company/profile/`;
   }
 
+  static realTimeUrl() {
+    return `https://financialmodelingprep.com/api/v3/stock/real-time-price/`
+  }
+
 	static getHeaders(){
     return {
       "Content-Type": "application/json",
@@ -55,21 +59,31 @@ class StocksAdapter {
   // add stock to a watchlist
 static addStockToWatchList(watch_list_id, symbol) {
   fetch(this.baseUrl() + `/stock_cards`, this.fetchConfig("POST", {watch_list_id, symbol}))
-  .then(console.log)
+  .then(res => res.json())
+  // .then(stockInfo => {
+  //   this.slapOnTheDOM(stockInfo);
+  // })
 }
 
   static getWatchlistOptions(userId) {
+    let option = document.createElement("option")
+    option.innerText = "";
+    option.dataset.id = ""
+    let select = document.querySelector('#watchlist-select');
+    select.append(option);
     UserAdapter.getUser(userId)
     .then(userData => {
       for (let wl of userData.watch_lists) {
         this.createOption(wl);
       }
       let select = document.querySelector('#watchlist-select');
+
       select.addEventListener("change", event => {
         let index = event.target.selectedIndex
         let symbol = document.querySelector('#ticker').innerText
-        let watchlist_id = parseInt(userData.watch_lists[index].id)
-        this.addStockToWatchList(watchlist_id, symbol)
+        let watchlist_id = parseInt(userData.watch_lists[index - 1].id)
+        this.addStockToWatchList(watchlist_id, symbol);
+        this.addWatchListToDOM(watchlist_id);
       })
     })
   }
