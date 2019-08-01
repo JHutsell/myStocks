@@ -10,26 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_161245) do
+ActiveRecord::Schema.define(version: 2019_08_01_142516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "stock_cards", force: :cascade do |t|
-    t.bigint "stock_id"
     t.bigint "watch_list_id"
-    t.index ["stock_id"], name: "index_stock_cards_on_stock_id"
-    t.index ["watch_list_id"], name: "index_stock_cards_on_watch_list_id"
-  end
-
-  create_table "stocks", force: :cascade do |t|
     t.string "symbol"
-    t.string "sector"
-    t.string "company_name"
-    t.string "exchange"
-    t.string "industry"
-    t.string "website"
-    t.string "image_url"
+    t.index ["watch_list_id"], name: "index_stock_cards_on_watch_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_07_31_161245) do
     t.index ["user_id"], name: "index_watch_lists_on_user_id"
   end
 
-  add_foreign_key "stock_cards", "stocks"
   add_foreign_key "stock_cards", "watch_lists"
   add_foreign_key "watch_lists", "users"
 end
