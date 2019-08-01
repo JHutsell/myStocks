@@ -73,11 +73,11 @@ class WatchListAdapter {
     let listItem = document.createElement('li');
     watchlist.append(listItem);
     listItem.dataset.id = watchlistInfo.id;
-    listItem.innerHTML += watchlistInfo.name;
+    listItem.innerHTML += `<span>${watchlistInfo.name}</span>`;
     listItem.innerHTML += `<button class="edit-list">Change Name</button>
-    <button class="delete-list">Delete</button>`
+    <button class="delete-list">Delete</button>`;
     listItem.addEventListener('click', event => {
-      StocksAdapter.addWatchListToDOM(event.target.dataset.id)
+      StocksAdapter.addWatchListToDOM(event.target.parentElement.dataset.id)
     });
   }
 
@@ -100,7 +100,10 @@ class WatchListAdapter {
 
 
   static getWatchList(input) {
-    return fetch(this.baseUrl() + `watch_lists/${input}`, this.fetchConfig())
+    console.log(input)
+    return fetch(this.baseUrl() + `watch_lists/${input}`)
     .then(res => res.json())
   }
+
+
 }
