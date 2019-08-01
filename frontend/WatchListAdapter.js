@@ -99,4 +99,9 @@ class WatchListAdapter {
   }
 
 
+  static getWatchList(input) {
+    fetch(this.baseUrl() + `watch_lists/${input}`, this.fetchConfig()
+    .then(res => res.json())
+  }
+
 }
