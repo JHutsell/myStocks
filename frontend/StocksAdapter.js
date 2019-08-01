@@ -74,5 +74,17 @@ class StocksAdapter {
 
     document.body.append(showedStockDiv);
   }
+
+  static addWatchListToDOM(watchlistId) {
+    WatchListAdapter.getWatchList(watchlistId)
+    .then(watchlistData => {
+      console.log(watchlistData);
+    });
+    //   for (let stock of watchlistData.stocks) {
+    //     console.log(stock);
+    //   }
+    // });
+    // this.clickEvents();
+  }
 }
 
