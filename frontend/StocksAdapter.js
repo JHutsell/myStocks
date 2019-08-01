@@ -102,10 +102,8 @@ class StocksAdapter {
   }
 
 // add stock to a watchlist
-static addStockToWatchList() {
-	fetch(this.baseUrl() + `/stock_cards`, this.fetchConfig("POST", {
-		
-	}))
+static addStockToWatchList(watch_list_id, symbol) {
+	fetch(this.baseUrl() + `/stock_cards`, this.fetchConfig("POST", {watch_list_id, symbol}));
 }
 
 }
