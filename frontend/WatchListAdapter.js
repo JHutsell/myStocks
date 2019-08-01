@@ -77,7 +77,7 @@ class WatchListAdapter {
     listItem.innerHTML += `<button class="edit-list">Change Name</button>
     <button class="delete-list">Delete</button>`
     listItem.addEventListener('click', event => {
-      console.log(event.target);
+      StocksAdapter.addWatchListToDOM(event.target.dataset.id)
     });
   }
 
@@ -100,8 +100,7 @@ class WatchListAdapter {
 
 
   static getWatchList(input) {
-    fetch(this.baseUrl() + `watch_lists/${input}`, this.fetchConfig()
+    return fetch(this.baseUrl() + `watch_lists/${input}`, this.fetchConfig())
     .then(res => res.json())
   }
-
 }
