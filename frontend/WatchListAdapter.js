@@ -39,9 +39,15 @@ class WatchListAdapter {
   static changeName(item, name) {
     fetch(this.baseUrl() + `watch_lists/` + item.dataset.id, this.fetchConfig("PATCH", {name}))
     .then(temp => {
-      item.innerHTML = name;
+      item.innerHTML = `<span>${name}</span>`;
       item.innerHTML += `<button class="edit-list">Change Name</button>
       <button class="delete-list">Delete</button>`
+      console.log(item)
+      item.addEventListener('click', event => {
+        if (event.target.tagName === 'SPAN') {
+          StocksAdapter.addWatchListToDOM(event.target.parentElement.dataset.id)
+        }
+      });
     })
   }
 
@@ -77,7 +83,9 @@ class WatchListAdapter {
     listItem.innerHTML += `<button class="edit-list">Change Name</button>
     <button class="delete-list">Delete</button>`;
     listItem.addEventListener('click', event => {
-      StocksAdapter.addWatchListToDOM(event.target.parentElement.dataset.id)
+      if (event.target.tagName === 'SPAN') {
+        StocksAdapter.addWatchListToDOM(event.target.parentElement.dataset.id)
+      }
     });
   }
 
