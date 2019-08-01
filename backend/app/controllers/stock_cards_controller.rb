@@ -10,7 +10,6 @@ class StockCardsController < ApplicationController
     end
 
     def create
-        byebug
         @stock_card = StockCard.create(stock_card_params)
         if @stock_card.valid?
             render json: @stock_card

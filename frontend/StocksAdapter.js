@@ -1,7 +1,7 @@
 class StocksAdapter {
 
 	static baseUrl() {
-		return `https://localhost:3000`;
+		return `http://localhost:3000`;
 	}
 
   static stockSysmbolListUrl() {
@@ -54,11 +54,7 @@ class StocksAdapter {
 
   // add stock to a watchlist
 static addStockToWatchList(watch_list_id, symbol) {
-  console.log(this.fetchConfig("POST", {watch_list_id, symbol}))
-  console.log(this.baseUrl() + `/stock_cards`)
-  debugger
   fetch(this.baseUrl() + `/stock_cards`, this.fetchConfig("POST", {watch_list_id, symbol}))
-  .then(console.log)
   .then(console.log)
 }
 
@@ -72,8 +68,8 @@ static addStockToWatchList(watch_list_id, symbol) {
       select.addEventListener("change", event => {
         let index = event.target.selectedIndex
         let symbol = document.querySelector('#ticker').innerText
-        let watchlist_id = userData.watch_lists[index].id
-        this.addStockToWatchList(parseInt(watchlist_id), symbol)
+        let watchlist_id = parseInt(userData.watch_lists[index].id)
+        this.addStockToWatchList(watchlist_id, symbol)
       })
     })
   }
