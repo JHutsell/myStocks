@@ -93,6 +93,13 @@ document.addEventListener('click', event => {
 	}
 });
 
+// // add stock to a watchlist
+// function addStockToWatchList() {
+// 	fetch(StockAdapter.baseUrl() + `/stocks`, StocksAdapter.fetchConfig("POST", {
+		
+// 	}))
+// }
+
 
 
 
