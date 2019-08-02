@@ -48,7 +48,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 		for (user of users) {
 			if (user.name.toLowerCase() === input.toLowerCase()) {
 				SIGN_IN_DIV.innerText = `Signed in as ${input}`;
-				SIGN_IN_DIV.innerHTML += `<button id="signout">Sign out</button>`;
+				SIGN_IN_DIV.innerHTML += `<br><button id="signout">Sign out</button>`;
 				document.body.innerHTML += `<div id="userDiv" data-id="${user.id}"></div>`
 				document.body.innerHTML += `<div id="search-stock-div">
 					<form id="search-stock">
@@ -68,8 +68,6 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 					</ul>
 				</div>
 				<div id="current-watchlist">
-				</div>
-				<div id="selected-stock">
 				</div>`;
 				WatchListAdapter.addWatchListsToDOM(user.id);
 				let button=document.querySelector("#createWatchList")

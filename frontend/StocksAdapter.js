@@ -68,9 +68,6 @@ class StocksAdapter {
 static addStockToWatchList(watch_list_id, symbol) {
   fetch(this.baseUrl() + `/stock_cards`, this.fetchConfig("POST", {watch_list_id, symbol}))
   .then(res => res.json())
-  // .then(stockInfo => {
-  //   this.slapOnTheDOM(stockInfo);
-  // })
 }
 
   static getWatchlistOptions(userId) {
@@ -99,17 +96,22 @@ static addStockToWatchList(watch_list_id, symbol) {
   static createDiv(stockInfo) {
     let stockProfile = stockInfo.profile;
     let showedStockDiv = document.querySelector("#search-stock-div");
-    showedStockDiv.innerHTML = `<div id="pop-up-stock-search"> <button name="exit" id="exit-button">x</button>
+    showedStockDiv.innerHTML = `<div id="pop-up-stock-search">
+    <div class="pop-up-stock-left">
+    <img src=${stockProfile.image}>
     <h3>${stockProfile.companyName}</h3>
     <h4 id="ticker">${stockInfo.symbol}</h4>
     <p>Price: $${stockProfile.price}</p>
-    <p>Description: <br>${stockProfile.description}</p>
-    <p>Sector: <br>${stockProfile.sector}</p>
-    <a href=${stockProfile.website} target="_blank">Website</a>
-    <img src=${stockProfile.image}>
+    <p class="info">Description: <br>${stockProfile.description}</p>
+    <p class="info">Sector: ${stockProfile.sector}</p>
+    <a href=${stockProfile.website} target="_blank">Website</a> <br>
     <label for="add-stock">Add Stock to a Watchlist:</label>
     <select name="Add Stock to Watchlist" id="watchlist-select">
     </select>
+    </div>
+    <div class="pop-up-stock-right">
+    <button name="exit" id="exit-button">x</button>
+    </div
     </div>`;
     let exitButton = showedStockDiv.querySelector('#exit-button');
     exitButton.addEventListener("click", function() {
@@ -148,14 +150,17 @@ static addStockToWatchList(watch_list_id, symbol) {
       if (event.target.className === 'delete-list') {
         this.deleteStock(event.target.parentElement);
       }
-      console.log(event.target);
+      else if (event.target.tagName === 'SPAN') {
+        StocksAdapter.getCompanyProfile(event.target.innerText.split(" - ")[0])
+        .then(StocksAdapter.createDiv);
+      }
     });
   }
 
   static makeCurrentWatchlist(watchlistData) {
     let currentWatchlist = document.querySelector('#current-watchlist');
     currentWatchlist.innerHTML = `
-      <h3>${watchlistData.name}</h3>
+      <h2>${watchlistData.name}</h2>
       <ul id="listOfCurrentWatchlist"></ul>`;
     if (watchlistData.stock_cards.length > 0) { 
         for (let stock of watchlistData.stock_cards) {
