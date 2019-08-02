@@ -11,7 +11,7 @@ class UserAdapter {
     }
   }
 
-  static fetchConfig(verb, body) {
+  static fetchConfig(verb, bodyObject) {
     return {
       method: verb,
       headers: this.getHeaders(),
@@ -27,6 +27,11 @@ class UserAdapter {
   static getUser(userId) {
   	return fetch(this.baseUrl() + `users/${userId}`)
   	.then(res => res.json());
+  }
+
+  static createUser(name) {
+    return fetch(this.baseUrl() + `users`, this.fetchConfig("POST", {name}))
+    .then(res => res.json());
   }
 
 }

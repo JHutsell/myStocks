@@ -15,7 +15,7 @@ class WatchListsController < ApplicationController
         if @watch_list.valid?
             render json: @watch_list
         else
-            render json: { errors: @watch_list.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @watch_list.errors.full_messages }#, status: :unprocessable_entity
         end
     end
 

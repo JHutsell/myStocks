@@ -14,7 +14,7 @@ class StockCardsController < ApplicationController
         if @stock_card.valid?
             render json: @stock_card
         else
-            render json: { errors: @stock_card.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @stock_card.errors.full_messages }#, status: :unprocessable_entity
         end
     end
 

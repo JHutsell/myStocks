@@ -42,53 +42,102 @@ SIGN_IN.addEventListener('click', event => {
 SIGN_IN_DIV.addEventListener('submit', event => {
 	event.preventDefault();
 	let input = event.target.username.value;
-	UserAdapter.getUsers()
-	.then(users => {
-		console.log(users)
-		for (user of users) {
-			if (user.name.toLowerCase() === input.toLowerCase()) {
-				SIGN_IN_DIV.innerText = `Signed in as ${input}`;
-				SIGN_IN_DIV.innerHTML += `<br><button id="signout">Sign out</button>`;
-				document.body.innerHTML += `<div id="userDiv" data-id="${user.id}"></div>`
-				document.body.innerHTML += `<div id="search-stock-div">
-					<form id="search-stock">
-						<label for="stock-query">Search Stocks</label>
-						<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
-						<button type="submit">search</button>
-					</form>
-				</div>
-				<div id="watchlists">
-					<h3>Watchlists</h3>
-					<form id="watchListForm">
-						<label for="new-watchlist">Create New Watchlist</label>
-						<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
-						<button id="createWatchList" type="submit">+</button>
-					</form>
-					<ul id="watchlist-list">
-					</ul>
-				</div>
-				<div id="current-watchlist">
-				</div>`;
-				WatchListAdapter.addWatchListsToDOM(user.id);
-				let button=document.querySelector("#createWatchList")
-				button.addEventListener('click', event => {
-					event.preventDefault();
-					console.log(event.target.parentElement.watchlist.value);
-					WatchListAdapter.postWatchList(event.target.parentElement.watchlist.value);
-					// if (event.target.id === "createWatchList") {
-					
-					// }
-				});
-				return;
+	if (event.target.id === "signupForm") {
+		UserAdapter.createUser(input)
+		.then(WatchListAdapter.handleErrors)
+		.then(user => {
+			SIGN_IN_DIV.innerHTML = `Signed in as ${input}
+					<br><button id="signout">Sign out</button>
+					<div id="userDiv" data-id="${user.id}"></div>
+					<div id="search-stock-div">
+						<form id="search-stock">
+							<label for="stock-query">Search Stocks</label>
+							<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
+							<button type="submit">search</button>
+						</form>
+					</div>
+					<div id="watchlists">
+						<h3>Watchlists</h3>
+						<form id="watchListForm">
+							<label for="new-watchlist">Create New Watchlist</label>
+							<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
+							<button id="createWatchList" type="submit">+</button>
+						</form>
+						<ul id="watchlist-list">
+						</ul>
+					</div>
+					<div id="current-watchlist">
+					</div>`;
+					WatchListAdapter.addWatchListsToDOM(user.id);
+					let button=document.querySelector("#createWatchList")
+					button.addEventListener('click', event => {
+						event.preventDefault();
+						console.log(event.target.parentElement.watchlist.value);
+						WatchListAdapter.postWatchList(event.target.parentElement.watchlist.value);
+						// if (event.target.id === "createWatchList") {
+						
+						// }
+					});
+		})
+		.catch(error => console.log(error))
+	}
+	else {
+		UserAdapter.getUsers()
+		.then(users => {
+			console.log(users)
+			for (user of users) {
+				if (user.name.toLowerCase() === input.toLowerCase()) {
+					SIGN_IN_DIV.innerHTML = `Signed in as ${input}
+					<br><button id="signout">Sign out</button>
+					<div id="userDiv" data-id="${user.id}"></div>
+					<div id="search-stock-div">
+						<form id="search-stock">
+							<label for="stock-query">Search Stocks</label>
+							<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
+							<button type="submit">search</button>
+						</form>
+					</div>
+					<div id="watchlists">
+						<h3>Watchlists</h3>
+						<form id="watchListForm">
+							<label for="new-watchlist">Create New Watchlist</label>
+							<input name="watchlist" type="text" class="form-control" id="new-watchlist" placeholder="Enter Name for Watchlist">
+							<button id="createWatchList" type="submit">+</button>
+						</form>
+						<ul id="watchlist-list">
+						</ul>
+					</div>
+					<div id="current-watchlist">
+					</div>`;
+					WatchListAdapter.addWatchListsToDOM(user.id);
+					let button=document.querySelector("#createWatchList")
+					button.addEventListener('click', event => {
+						event.preventDefault();
+						console.log(event.target.parentElement.watchlist.value);
+						WatchListAdapter.postWatchList(event.target.parentElement.watchlist.value);
+						// if (event.target.id === "createWatchList") {
+						
+						// }
+					});
+					return;
+				}
 			}
-		}
-		console.log("test");
-		alert("An incorrect username has been provided.");
-	})
+			alert("An incorrect username has been provided.");
+		})
+	}
 });
 
 document.addEventListener('click', event => {
 	if (event.target.id === "signout") {
 		location.reload();
+	}
+	else if (event.target.id === "signup") {
+		let signInDIv = event.target.parentElement;
+		signInDIv.innerHTML = `<form id="signupForm"> 
+			<label> Create username </label>
+			<input name="username" type="text" placeholder="new user">
+			<button id="sign-in-btn" type="submit">Submit</button>
+		</form>`;
+		signInDIv.innerHTML += `<button id="signout">Go back</button>`
 	}
 });
