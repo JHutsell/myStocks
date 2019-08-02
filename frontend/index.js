@@ -134,9 +134,10 @@ document.addEventListener('click', event => {
 	else if (event.target.id === "signup") {
 		let signInDIv = event.target.parentElement;
 		signInDIv.innerHTML = `<form id="signupForm"> 
-		<label> Create username </label>
-		<input name="username" type="text" placeholder="new user">
-		<button id="sign-in-btn" type="submit">Submit</button>
-	</form>`;
+			<label> Create username </label>
+			<input name="username" type="text" placeholder="new user">
+			<button id="sign-in-btn" type="submit">Submit</button>
+		</form>`;
+		signInDIv.innerHTML += `<button id="signout">Go back</button>`
 	}
 });

@@ -13,6 +13,10 @@ button {
 	margin: 10px;
 }
 
+#logo {
+	width: 60px;
+}
+
 #title {
 	background: lightblue;
 	padding: 20px;
@@ -23,6 +27,7 @@ button {
 	font-family: sans-serif;
 	text-align: center;
 	color: white;
+	font-family: 'Fredoka One', cursive;;
 }
 
 .signin,
