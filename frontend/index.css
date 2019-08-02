@@ -4,6 +4,16 @@
 	box-sizing: border-box;
 }
 
+label:hover,
+span:hover,
+button:hover {
+	font-weight: bold;
+}
+
+span {
+	cursor: default;
+}
+
 /***********************
 			Nav Bar
 ***********************/
