@@ -1,0 +1,126 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/***********************
+			Nav Bar
+***********************/
+
+button {
+	padding: 5px;
+	margin: 10px;
+}
+
+#title {
+	background: lightblue;
+	padding: 20px;
+}
+
+#title h1 {
+	font-size: 3em;
+	font-family: sans-serif;
+	text-align: center;
+	color: white;
+}
+
+.signin,
+#search-stock-div {
+	width: 50%;
+	margin: 30px auto;
+	text-align: center;
+}
+
+/***********************
+			Main Body
+***********************/
+
+.form-control {
+	height: 30px;
+	width: 150px;
+}
+
+#watchlists {
+	widht: 75%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#watchlists h3 {
+	font-size: 1.5em;
+}
+
+#pop-up-stock-search {
+	/*margin-left: 20px;*/
+	border: 1px solid white;
+	border-radius: 20px;
+	padding: 20px;
+	background: lightblue;
+	color: white;
+	display: flex;
+	flex-direction: row;
+}
+
+#watchListForm {
+	padding-bottom: 10px;
+}
+
+li {
+	padding-bottom 10px;
+}
+
+#current-watchlist {
+	text-align: center;
+	border: 1px solid white;
+	/*padding: 20px;*/
+}
+
+#current-watchlist h2 {
+	padding: 10px 0;
+	background: lightblue;
+	color: white;
+}
+
+#listOfCurrentWatchlist {
+	background: lightblue;
+	margin: 10px 0;
+}
+
+#listOfCurrentWatchlist span {
+	color: white;
+}
+
+.info {
+	border: 1px solid white;
+}
+
+/*#watchlist-select {
+	padding: 5px;
+	margin: 10px;
+}*/
+
+/***********************
+			Buttons/Links
+***********************/
+
+.delete-list {
+	 background-color: red;
+	 color: white;
+
+}
+
+#exit-button {
+	padding: 2px;
+	border-radius: 30%;
+	font-size: 15px;
+	color: lightblue;
+	margin-top: 1px;
+  margin-right: 2px;
+}
+
+#exit-button:hover {
+	background-color: red;
+	color: white;
+}
+
