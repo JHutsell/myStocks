@@ -92,11 +92,21 @@ class WatchListAdapter {
     listItem.innerHTML += `<div id="change-div"></div>`
   }
 
+  static handleErrors(response) {
+    if(!!response.errors) {
+      alert(response.errors[0])
+      throw Error(response.statusText)
+    }
+    return response
+  }
+
 
   static postWatchList(input) {
     fetch(this.baseUrl() + `watch_lists`, this.fetchConfig("POST", this.body(input)))
     .then(res => res.json())
+    .then(this.handleErrors)
     .then(this.slapOnTheDOM)
+    .catch(error => console.log(error))
   }
 
   static addWatchListsToDOM(userId) {
