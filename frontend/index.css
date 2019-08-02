@@ -2,6 +2,7 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+
 }
 
 label:hover,
@@ -56,8 +57,9 @@ button {
 	width: 150px;
 }
 
+
 #watchlists {
-	widht: 75%;
+	width: 75%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -81,9 +83,11 @@ button {
 	padding-bottom: 10px;
 }
 
-li {
-	padding-bottom 10px;
+ul {
+	
+	list-style-type: none;
 }
+
 
 #current-watchlist {
 	text-align: center;

@@ -46,10 +46,10 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 		UserAdapter.createUser(input)
 		.then(WatchListAdapter.handleErrors)
 		.then(user => {
-			SIGN_IN_DIV.innerText = `Signed in as ${input}`;
-					SIGN_IN_DIV.innerHTML += `<br><button id="signout">Sign out</button>`;
-					document.body.innerHTML += `<div id="userDiv" data-id="${user.id}"></div>`
-					document.body.innerHTML += `<div id="search-stock-div">
+			SIGN_IN_DIV.innerHTML = `Signed in as ${input}
+					<br><button id="signout">Sign out</button>
+					<div id="userDiv" data-id="${user.id}"></div>
+					<div id="search-stock-div">
 						<form id="search-stock">
 							<label for="stock-query">Search Stocks</label>
 							<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
@@ -87,10 +87,10 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 			console.log(users)
 			for (user of users) {
 				if (user.name.toLowerCase() === input.toLowerCase()) {
-					SIGN_IN_DIV.innerText = `Signed in as ${input}`;
-					SIGN_IN_DIV.innerHTML += `<br><button id="signout">Sign out</button>`;
-					document.body.innerHTML += `<div id="userDiv" data-id="${user.id}"></div>`
-					document.body.innerHTML += `<div id="search-stock-div">
+					SIGN_IN_DIV.innerHTML = `Signed in as ${input}
+					<br><button id="signout">Sign out</button>
+					<div id="userDiv" data-id="${user.id}"></div>
+					<div id="search-stock-div">
 						<form id="search-stock">
 							<label for="stock-query">Search Stocks</label>
 							<input name="stock" type="text" class="form-control" id="stock-query" placeholder="Enter Ticker or Name">
