@@ -44,6 +44,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 	let input = event.target.username.value;
 	if (event.target.id === "signupForm") {
 		UserAdapter.createUser(input)
+		.then(WatchListAdapter.handleErrors)
 		.then(user => {
 			SIGN_IN_DIV.innerText = `Signed in as ${input}`;
 					SIGN_IN_DIV.innerHTML += `<br><button id="signout">Sign out</button>`;
@@ -78,6 +79,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 						// }
 					});
 		})
+		.catch(error => console.log(error))
 	}
 	else {
 		UserAdapter.getUsers()
