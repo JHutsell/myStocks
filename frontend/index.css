@@ -2,6 +2,17 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+
+}
+
+label:hover,
+span:hover,
+button:hover {
+	font-weight: bold;
+}
+
+span {
+	cursor: default;
 }
 
 /***********************
@@ -11,6 +22,10 @@
 button {
 	padding: 5px;
 	margin: 10px;
+}
+
+#logo {
+	width: 60px;
 }
 
 #title {
@@ -23,6 +38,7 @@ button {
 	font-family: sans-serif;
 	text-align: center;
 	color: white;
+	font-family: 'Fredoka One', cursive;;
 }
 
 .signin,
@@ -41,8 +57,9 @@ button {
 	width: 150px;
 }
 
+
 #watchlists {
-	widht: 75%;
+	width: 75%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -66,9 +83,11 @@ button {
 	padding-bottom: 10px;
 }
 
-li {
-	padding-bottom 10px;
+ul {
+	
+	list-style-type: none;
 }
+
 
 #current-watchlist {
 	text-align: center;
