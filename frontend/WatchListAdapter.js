@@ -53,7 +53,8 @@ class WatchListAdapter {
   }
 
   static clickEvents() {
-    document.addEventListener('click', event => {
+    let watchlists = document.querySelector('#watchlists');
+    watchlists.addEventListener('click', event => {
       // event.preventDefault()
       if (event.target.className === "delete-list") {
         this.deleteWatchList(event.target.parentElement);
