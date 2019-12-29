@@ -37,6 +37,7 @@ class StocksAdapter {
     return fetch(this.baseUrl() + "/watchlists", fetchConfig)
       .then(res => res.json());
   }
+  // this function utilizes the fetchConfig function to make a POST request to the database
 
   static deleteStock(item) {
     fetch(this.baseUrl() + `/stock_cards/` + item.dataset.id,  {
