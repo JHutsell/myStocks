@@ -125,7 +125,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 			}
 			alert("An incorrect username has been provided.");
 		})
-	}
+	} // this function allows for users to see their individual watchlists, and create new ones, with all of their data persistant
 });
 
 document.addEventListener('click', event => {
