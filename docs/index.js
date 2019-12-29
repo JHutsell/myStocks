@@ -140,5 +140,5 @@ document.addEventListener('click', event => {
 			<button id="sign-in-btn" type="submit">Submit</button>
 		</form>`;
 		signInDIv.innerHTML += `<button id="signout">Go back</button>`
-	}
+	} // this allows for users to sign out of their profile, and return to the homescreen, where they can login in again, switch to another user, or create a new account
 });
