@@ -30,6 +30,7 @@ class StocksAdapter {
       body: JSON.stringify(bodyObject)
     }
   }
+  // this function allows for the the reusable fetch functionalities, which can be customized based on what is being passed to the function
 
   static createWatchlist(watchlist) {
     const fetchConfig = this.fetchConfig("POST", watchlist);
