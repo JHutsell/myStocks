@@ -81,7 +81,7 @@ SIGN_IN_DIV.addEventListener('submit', event => {
 					});
 		})
 		.catch(error => console.log(error))
-	}
+	} // this function allows users to create new watchlists for their stocks
 	else {
 		UserAdapter.getUsers()
 		.then(users => {
