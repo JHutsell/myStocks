@@ -28,7 +28,7 @@ document.addEventListener('submit', event => {
 	}
 })
 
-
+//This function allows users to search for indidual stocks, using the Stocks Adapter
 
 SIGN_IN.addEventListener('click', event => {
 	let signInDIv = event.target.parentElement;
